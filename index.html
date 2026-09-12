@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boys — Birthday Bunch</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-head">
+      <h1>The Birthday Bunch</h1>
+      <p>13 boys, 13 birthdays, one countdown clock.</p>
+    </header>
+
+    <nav class="tabs">
+      <div class="tabs-inner">
+        <button id="tab-boys" class="tab-btn active">The Boys</button>
+        <button id="tab-birthdays" class="tab-btn">Birthdays</button>
+      </div>
+    </nav>
+
+    <section id="view-boys" class="view active">
+      <div id="boys-list" class="boys-list"></div>
+    </section>
+
+    <section id="view-birthdays" class="view">
+      <div class="orbit-stage">
+        <div id="orbit-ring" class="orbit-ring"></div>
+        <div id="orbit-counter" class="orbit-counter"></div>
+      </div>
+      <div id="today-banner-host"></div>
+      <div id="tbd-tray" class="tbd-tray"></div>
+    </section>
+
+    <section id="view-gallery" class="view"></section>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

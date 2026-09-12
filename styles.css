@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #14171f;
+  --surface: #1b202c;
+  --surface-2: #232a3a;
+  --coral: #ff6b54;
+  --yellow: #ffc24b;
+  --mint: #3fcfb4;
+  --text: #f3f1ea;
+  --text-dim: #9198ac;
+  --ring: 420px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% -10%, rgba(255,107,84,0.16), transparent 45%),
+    radial-gradient(circle at 100% 0%, rgba(63,207,180,0.14), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  padding: 0 20px 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+.wrap { max-width: 860px; margin: 0 auto; }
+
+header.site-head {
+  padding: 48px 0 28px;
+  text-align: center;
+}
+
+.site-head h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.site-head p {
+  color: var(--text-dim);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* Tab toggle */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 8px;
+}
+
+.tabs-inner {
+  display: inline-flex;
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 6px;
+  gap: 4px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.tab-btn {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tab-btn.active {
+  color: #14171f;
+  background: linear-gradient(135deg, var(--yellow), var(--coral));
+}
+
+.view { display: none; animation: fadein 0.35s ease; }
+.view.active { display: block; }
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- The Boys list ---- */
+.boys-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.boy-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.boy-row:hover {
+  transform: translateX(4px);
+  background: var(--surface-2);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+.avatar-fallback {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #14171f;
+}
+
+.boy-name {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.boy-date {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.boy-date.tbd { font-style: italic; opacity: 0.6; }
+
+/* ---- Birthdays orbit ---- */
+.orbit-stage {
+  position: relative;
+  width: 100%;
+  max-width: var(--ring);
+  aspect-ratio: 1;
+  margin: 40px auto 20px;
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.12);
+  animation: spin 40s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-bubble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  transform-origin: center;
+}
+
+.orbit-bubble img, .orbit-bubble .avatar-fallback {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--surface);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  cursor: pointer;
+  display: block;
+}
+
+.orbit-counter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-card {
+  text-align: center;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 22px 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+  min-width: 190px;
+}
+
+.next-card .label {
+  text-transform: none;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.next-card .days {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--yellow), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.next-card .days-label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.next-card .who {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.today-banner {
+  text-align: center;
+  background: linear-gradient(135deg, var(--coral), var(--yellow));
+  color: #14171f;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin: 10px auto 0;
+  max-width: 460px;
+  cursor: pointer;
+}
+
+.tbd-tray {
+  margin-top: 46px;
+}
+
+.tbd-tray h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.tbd-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tbd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.tbd-item img, .tbd-item .avatar-fallback {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+.tbd-item span {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* ---- Gallery view ---- */
+.gallery-back {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 24px 0 0;
+  padding: 8px 0;
+}
+
+.gallery-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 18px 0 30px;
+}
+
+.gallery-head img, .gallery-head .avatar-fallback {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--coral);
+}
+
+.gallery-head h2 {
+  font-family: 'Fredoka', sans-serif;
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+}
+
+.gallery-head p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.gallery-empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 20px;
+  border: 1px dashed rgba(255,255,255,0.14);
+  border-radius: 18px;
+}
