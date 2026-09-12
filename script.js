@@ -84,18 +84,28 @@ function renderBirthdays() {
   const ring = document.getElementById("orbit-ring");
   ring.innerHTML = "";
   const n = sorted.length;
+  const soonest = sorted[0];
   sorted.forEach((f, i) => {
     const angle = (360 / n) * i;
     const bubble = document.createElement("div");
-    bubble.className = "orbit-bubble";
+    bubble.className = "orbit-bubble" + (f === soonest ? " orbit-bubble--next" : "");
     bubble.style.transform = `rotate(${angle}deg) translate(180px) rotate(-${angle}deg)`;
-    bubble.title = `${f.name} — ${formatDate(f)}`;
     bubble.onclick = (e) => { e.stopPropagation(); goToGallery(f.id); };
 
     // counter-rotate so photo stays upright as the ring spins
     const spinWrap = document.createElement("div");
+    spinWrap.className = "orbit-spin";
     spinWrap.style.animation = "counterspin 40s linear infinite";
-    spinWrap.appendChild(avatarEl(f, 64));
+
+    const av = avatarEl(f, 64);
+    av.style.borderColor = colorFor(f.name);
+    spinWrap.appendChild(av);
+
+    const label = document.createElement("span");
+    label.className = "orbit-label";
+    label.textContent = `${f.name} · ${formatDate(f)}`;
+    spinWrap.appendChild(label);
+
     bubble.appendChild(spinWrap);
     ring.appendChild(bubble);
   });

@@ -4,7 +4,7 @@
 // filename into /images and add it to the list.
 const FRIENDS = [
   { id: "abishek",   name: "Abishek",   photo: "images/abishek.jpg",   birthMonth: 3,  birthDay: 24, birthYear: 2008, gallery: ["images/abishek.jpg"] },
-  { id: "alen",      name: "Alen",      photo: "images/alen.jpg",      birthMonth: 4,  birthDay: 4,  birthYear: null, gallery: ["images/alen.jpg"] },
+  { id: "alen",      name: "Alen",      photo: "images/alen.jpg",      birthMonth: 4,  birthDay: 14, birthYear: null, gallery: ["images/alen.jpg"] },
   { id: "ivin",      name: "Ivin",      photo: "images/ivin.jpg",      birthMonth: 2,  birthDay: 6,  birthYear: 2008, gallery: ["images/ivin.jpg"] },
   { id: "ram",       name: "Ram",       photo: null,                   birthMonth: null, birthDay: null, birthYear: null, gallery: [] },
   { id: "pranav",    name: "Pranav",    photo: "images/pranav.jpg",    birthMonth: 5,  birthDay: 25, birthYear: null, gallery: ["images/pranav.jpg"] },
