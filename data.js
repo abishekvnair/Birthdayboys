@@ -11,7 +11,7 @@ const FRIENDS = [
   { id: "rithunand", name: "Rithunand", photo: "images/rithunand.jpg", birthMonth: null, birthDay: null, birthYear: null, gallery: ["images/rithunand.jpg"] },
   { id: "abhinav",   name: "Abhinav",   photo: "images/abhinav.jpg",   birthMonth: 10, birthDay: 29, birthYear: null, gallery: ["images/abhinav.jpg","images/abhinav2.jpeg"] },
   { id: "ron",       name: "Ron",       photo: "images/ron.jpg",       birthMonth: 4,  birthDay: 14, birthYear: null, gallery: ["images/ron.jpg"] },
-  { id: "nivedh",    name: "Nivedh",    photo: "images/nivedh.jpg",    birthMonth: 12, birthDay: 26, birthYear: 2008, gallery: ["images/nivedh.jpg"] },
+  { id: "nivedh",    name: "Nivedh",    photo: "images/nivedh.jpg",    birthMonth: 12, birthDay: 26, birthYear: 2008, gallery: ["images/nivedh.jpg","images/nivedh2.jpeg"] },
   { id: "akash",     name: "Akash",     photo: "images/akash.jpg",     birthMonth: null, birthDay: null, birthYear: null, gallery: ["images/akash.jpg","images/akash2.jpeg"] },
   { id: "nithin",    name: "Nithin",    photo: "images/nithin.jpg",    birthMonth: 2, birthDay: 4, birthYear: null, gallery: ["images/nithin.jpg"] },
   { id: "sajid",     name: "Sajid",     photo: "images/sajid.jpg",     birthMonth: null, birthDay: null, birthYear: null, gallery: ["images/sajid.jpg","images/sajid2.jpeg"] },
